@@ -41,6 +41,6 @@ int main()
     } else {
         pointeur_fonction=& avec_for;
     }
-    printf("resultat : %d\n", pointeur_fonction(valeur));
+    printf("resultat : %d\n", (*pointeur_fonction)(valeur));
     return 0;
 }
