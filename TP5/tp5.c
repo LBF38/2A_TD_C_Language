@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct list
 {
@@ -10,6 +11,22 @@ struct cell
     int valeur;
     struct cell *next; // pourquoi met on un struct ? pour mettre un pointeur de cellule vers la cellule suivante.
 };
+
+
+void push(struct list* pList,int value)
+{
+    // on met en début de liste pour l'instant
+    // Etape 2
+    struct cell *pc; // il faut un pointeur de cellule pour le retrouver après la sortie de la fonction.
+    pc=malloc(sizeof(struct cell));
+    // Etape 3
+    pc->valeur=value;
+    pc->next=pList->firstCell;
+    // Etape 4
+    pList->firstCell=pc;
+}
+
+
 
 
 int main()
