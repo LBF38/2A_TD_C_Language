@@ -50,7 +50,6 @@ int main()
     c3.next = NULL;
     l.firstCell = &c1;
     push(&l, 5);
-    printf(pop);
-
+    printf("pop: %d\n",pop(&l));
     return 0;
 }
