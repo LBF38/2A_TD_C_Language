@@ -12,4 +12,17 @@ struct cell
 };
 
 
+int main()
+{
+    struct list l;
+    struct cell c1,c2,c3;
+    c1.valeur=3;
+    c1.next=&c2;
+    c2.valeur=15;
+    c2.next=&c3;
+    c3.valeur=7;
+    c3.next=NULL;
+    l.firstCell=&c1;
 
+    return 0;
+}
