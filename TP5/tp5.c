@@ -26,6 +26,18 @@ void push(struct list* pList,int value)
     pList->firstCell=pc;
 }
 
+int pop(struct list* pList)
+{
+    // Etape 1
+    int result;
+    struct cell *pc;
+    pc=pList->firstCell;
+    pList->firstCell=pc->next;
+    // Etape 2
+    result=pc->valeur;
+    free(pc);
+    return result;
+}
 
 
 
@@ -40,6 +52,8 @@ int main()
     c3.valeur=7;
     c3.next=NULL;
     l.firstCell=&c1;
+    push(&l,5);
+    printf(pop);
 
     return 0;
 }
