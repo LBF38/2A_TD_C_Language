@@ -38,6 +38,21 @@ int pop(struct list *pList)
     return result;
 }
 
+int taille(struct list *pList)
+{
+    int i=0;
+    struct cell *condition=pList->firstCell;
+    if (condition == NULL){
+        return i;
+    }
+    while (condition != NULL)
+    {
+        i++;
+        condition=condition->next;
+    }
+    return i;
+}
+
 int main()
 {
     struct list l;
@@ -51,5 +66,6 @@ int main()
     l.firstCell = &c1;
     push(&l, 5);
     printf("pop: %d\n",pop(&l));
+    printf("taille: %d\n",taille(&l));
     return 0;
 }
