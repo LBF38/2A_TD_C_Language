@@ -40,17 +40,34 @@ int pop(struct list *pList)
 
 int taille(struct list *pList)
 {
-    int i=0;
-    struct cell *condition=pList->firstCell;
-    if (condition == NULL){
+    int i = 0;
+    struct cell *condition = pList->firstCell;
+    if (condition == NULL)
+    {
         return i;
     }
     while (condition != NULL)
     {
         i++;
-        condition=condition->next;
+        condition = condition->next;
     }
     return i;
+}
+
+struct cell lastCell(struct list *pList)
+{
+    struct cell *lastCellule= pList->firstCell;
+    struct cell *cellule = pList->firstCell->next;
+    while (cellule != NULL && lastCellule !=NULL)
+    {
+        lastCellule = cellule;
+        cellule = cellule->next;
+    }
+    if (lastCellule==NULL){
+        fprintf(stderr,"error list: %s\n","NULL List input");
+        exit(-1);
+    }
+    return *lastCellule;
 }
 
 int main()
@@ -65,7 +82,8 @@ int main()
     c3.next = NULL;
     l.firstCell = &c1;
     push(&l, 5);
-    printf("pop: %d\n",pop(&l));
-    printf("taille: %d\n",taille(&l));
+    printf("pop: %d\n", pop(&l));
+    printf("taille: %d\n", taille(&l));
+    printf("dernière cellule: %d\n", lastCell(&l).valeur);
     return 0;
 }
